@@ -11,6 +11,7 @@
 		D244F9522BA632CA00F962DB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D244F9512BA632CA00F962DB /* ContentView.swift */; };
 		D244F9542BA632CC00F962DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D244F9532BA632CC00F962DB /* Assets.xcassets */; };
 		D244F9572BA632CC00F962DB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D244F9562BA632CC00F962DB /* Preview Assets.xcassets */; };
+		D2D21A412BA862530081E02F /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D21A402BA862530081E02F /* Item.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		D244F9512BA632CA00F962DB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D244F9532BA632CC00F962DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D244F9562BA632CC00F962DB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D2D21A402BA862530081E02F /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				D244F94F2BA632CA00F962DB /* DosTap_iOSApp.swift */,
 				D244F9512BA632CA00F962DB /* ContentView.swift */,
+				D2D21A402BA862530081E02F /* Item.swift */,
 				D244F9532BA632CC00F962DB /* Assets.xcassets */,
 				D244F9552BA632CC00F962DB /* Preview Content */,
 			);
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D244F9522BA632CA00F962DB /* ContentView.swift in Sources */,
+				D2D21A412BA862530081E02F /* Item.swift in Sources */,
 				D244F9502BA632CA00F962DB /* DosTap_iOSApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,9 +291,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "daurendee.DosTap-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -316,9 +324,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "daurendee.DosTap-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
