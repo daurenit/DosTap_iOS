@@ -25,85 +25,141 @@ struct ContentView: View {
                         .onEnded(onEnded)
                 )
             }
-            VStack {
-                Spacer()
+            HStack {
                 pageIndicator
-                if currentPage != lastPage {
-                    navigationButtons
-                } else {
-                    startButton
-                }
+                navigationButtons
             }
+            .frame(width: 300)
+            .frame(height: 55)
             .padding(.horizontal)
-            .padding(.bottom, 20) // Ensure buttons are above any home indicator
+            .padding(.top, 650)
         }
     }
+    
+//    var pageIndicator: some View {
+//        HStack(spacing: 6) {
+//            ForEach(0..<data.count, id: \.self) { i in
+//                Circle()
+//                    .frame(width: 20, height: 6)
+//                    .foregroundColor(i == currentPage ? .purple : .gray)
+//                    .transition(.scale)
+//            }
+//        }
+//    }
+    
+//    var pageIndicator: some View {
+//        ZStack {
+//            HStack(spacing: 6) {
+//                ForEach(0..<data.count, id: \.self) { i in
+//                    Circle()
+//                        .frame(width: 20, height: 6)
+//                }
+//            }
+//            .foregroundStyle(.purple)
+//            
+//        }
+//    }
     
     var pageIndicator: some View {
-        ZStack {
-            HStack(spacing: 6) {
-                ForEach(0..<data.count, id: \.self) { i in
-                    Circle()
-                        .frame(width: 10, height: 6)
-                }
-            }
-            .foregroundStyle(.white)
-            
-            HStack(spacing: 6) {
-                ForEach(0..<data.count, id: \.self) { i in
-                    if i == currentPage {
-                        Capsule()
-                            .matchedGeometryEffect(id: "page", in: namespace)
-                            .frame(width: 18, height: 6)
-                    } else {
-                        Circle()
-                            .frame(width: 10, height: 6)
+            ZStack {
+//                HStack(spacing: 6) {
+//                    ForEach(0..<data.count, id: \.self) { i in
+//                        Circle()
+//                            .frame(width: 30, height: 6)
+//                    }
+//                }
+//                .foregroundStyle(.green)
+                
+                HStack(spacing: 6) {
+                    ForEach(0..<data.count, id: \.self) { i in
+                        if i == currentPage {
+                            Capsule()
+                                .matchedGeometryEffect(id: "page", in: namespace)
+                                .frame(width: 30, height: 5)
+                                .foregroundStyle(.purple)
+                        } else {
+                            Rectangle()
+                                .frame(width: 15, height: 5)
+                                .cornerRadius(20)
+                                .foregroundStyle(.gray)
+                        }
                     }
                 }
+//                .foregroundStyle(.purple)
             }
-            .foregroundStyle(.white)
+            .animation(.default, value: currentPage) // Animate the page indicator transition
         }
-        .animation(.default, value: currentPage) // Animate the page indicator transition
-    }
     
+//    var navigationButtons: some View {
+//        HStack {
+//            Spacer() // Pushes the button to the right
+//            Button(action: {
+//                if currentPage < lastPage {
+//                    goToNextPage()
+//                }
+//            }) {
+//                Text(currentPage < lastPage ? "Далее" : "Начать")
+//                    .fontWeight(.bold)
+//            }
+//            .frame(width: 215, height: 55)
+//            .background(Color.purple)
+//            .foregroundColor(.white)
+//            .cornerRadius(30)
+//        }
+//    }
+    
+//    var navigationButtons: some View {
+//        HStack {
+//            Spacer() // Pushes the button to the right
+//            Button(action: {
+//                if currentPage < lastPage {
+//                    goToNextPage()
+//                }
+//            }) {
+//                Text(currentPage < lastPage ? "Далее" : "Начать")
+//                    .fontWeight(.bold)
+//                    .frame(width: 215, height: 55) // Set the frame of the text
+//                    .background(Color.purple) // Background color
+//                    .foregroundColor(.white) // Text color
+//                    .cornerRadius(30) // Rounded corners
+//                    .contentShape(Rectangle()) // This ensures the tappable area is the whole rectangle
+//            }
+//        }
+//    }
+
+    struct SimpleButtonStyle: ButtonStyle {
+        func makeBody(configuration: Self.Configuration) -> some View {
+            configuration.label
+                .background(Color.purple) // Background color
+                .foregroundColor(.white)  // Text color
+                .cornerRadius(30)        // Rounded corners
+//                .frame(width: 215, height: 55) // Set the frame
+                .opacity(configuration.isPressed ? 1.0 : 1.0) // No opacity change on press
+        }
+    }
+
     var navigationButtons: some View {
         HStack {
-            Button(action: skipToEnd) {
-                Text("Skip")
-                    .frame(maxWidth: .infinity)
-            }
-            Spacer()
-            Button(action: goToNextPage) {
-                HStack {
-                    Text("Next")
+            Spacer() // Pushes the button to the right
+            Button(action: {
+                if currentPage < lastPage {
+                    goToNextPage()
                 }
-                .font(.system(size: 17, weight: .bold))
-                .frame(maxWidth: .infinity)
+            }) {
+                Text(currentPage < lastPage ? "Далее" : "Начать")
+                    .fontWeight(.bold)
+                    .frame(width: 215, height: 55)
             }
-        }
-        .frame(height: 60)
-        .foregroundColor(.white)
-    }
-    
-    var startButton: some View {
-        Button(action: {}) {
-            Text("Start")
-                .foregroundStyle(.blue)
-                .fontWeight(.semibold)
-                .frame(maxWidth: .infinity)
-                .frame(height: 60)
-                .background(Capsule().fill(Color.white))
+            .buttonStyle(SimpleButtonStyle()) // Apply the custom button style
         }
     }
 
-    func skipToEnd() {
-        currentPage = lastPage
-        withAnimation { xOffset = -screenWidth * CGFloat(lastPage) }
-    }
 
     func goToNextPage() {
-        currentPage += 1
-        withAnimation { xOffset = -screenWidth * CGFloat(currentPage) }
+        withAnimation {
+            currentPage += 1
+            xOffset = -screenWidth * CGFloat(currentPage)
+        }
     }
 
     func onChanged(value: DragGesture.Value) {
@@ -111,10 +167,15 @@ struct ContentView: View {
     }
     
     func onEnded(value: DragGesture.Value) {
-        if -value.translation.width > screenWidth / 2 && currentPage < lastPage {
-            currentPage += 1
-        } else if value.translation.width > screenWidth / 2 && currentPage > firstPage {
-            currentPage -= 1
+        let threshold = screenWidth / 2
+        if value.translation.width < -threshold {
+            if currentPage < lastPage {
+                currentPage += 1
+            }
+        } else if value.translation.width > threshold {
+            if currentPage > firstPage {
+                currentPage -= 1
+            }
         }
         withAnimation {
             xOffset = -screenWidth * CGFloat(currentPage)
@@ -130,23 +191,29 @@ struct ItemView: View {
             item.backgroundColor
                 .ignoresSafeArea(.all, edges: .all)
             
-            VStack(spacing: 20) {
+            VStack(spacing: 100) {
                 Image(item.image)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .padding(.top)
+                    .fixedSize()
+                    .padding(.top, 80)
                 
                 VStack(spacing: 15) {
                     Text(item.title)
-                        .font(.system(size: 40, weight: .semibold))
+                        .font(.system(size: 34, weight: .bold))
                     
                     Text(item.subtitle)
-                        .font(.system(size: 20, weight: .regular))
+                        .font(.system(size: 17, weight: .regular))
                 }
                 .padding(.horizontal)
                 Spacer()
             }
-            .foregroundStyle(.white)
+            .foregroundStyle(.black)
         }
     }
 }
+
+#Preview {
+    ContentView()
+}
+
