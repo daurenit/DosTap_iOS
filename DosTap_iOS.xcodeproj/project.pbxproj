@@ -8,18 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		D244F9502BA632CA00F962DB /* DosTap_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D244F94F2BA632CA00F962DB /* DosTap_iOSApp.swift */; };
-		D244F9522BA632CA00F962DB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D244F9512BA632CA00F962DB /* ContentView.swift */; };
+		D244F9522BA632CA00F962DB /* InterestSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D244F9512BA632CA00F962DB /* InterestSelectionView.swift */; };
 		D244F9542BA632CC00F962DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D244F9532BA632CC00F962DB /* Assets.xcassets */; };
 		D244F9572BA632CC00F962DB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D244F9562BA632CC00F962DB /* Preview Assets.xcassets */; };
+		D245D14A2BE8F49300CDF3DA /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D245D1492BE8F49300CDF3DA /* LoginViewModel.swift */; };
+		D245D1502BE95A7700CDF3DA /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D245D14F2BE95A7700CDF3DA /* OnboardingView.swift */; };
+		D245D1522BE9659500CDF3DA /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D245D1512BE9659500CDF3DA /* RegistrationView.swift */; };
+		D2A1DAB12BDFE9F600A103EC /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A1DAB02BDFE9F600A103EC /* Webservice.swift */; };
 		D2D21A412BA862530081E02F /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D21A402BA862530081E02F /* Item.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D244F94C2BA632CA00F962DB /* DosTap_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DosTap_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D244F94F2BA632CA00F962DB /* DosTap_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DosTap_iOSApp.swift; sourceTree = "<group>"; };
-		D244F9512BA632CA00F962DB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D244F9512BA632CA00F962DB /* InterestSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestSelectionView.swift; sourceTree = "<group>"; };
 		D244F9532BA632CC00F962DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D244F9562BA632CC00F962DB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D245D1492BE8F49300CDF3DA /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		D245D14F2BE95A7700CDF3DA /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		D245D1512BE9659500CDF3DA /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		D2A1DAB02BDFE9F600A103EC /* Webservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
 		D2D21A402BA862530081E02F /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -37,6 +45,8 @@
 		D244F9432BA632CA00F962DB = {
 			isa = PBXGroup;
 			children = (
+				D245D1482BE8F47A00CDF3DA /* ViewModel */,
+				D2A1DAAF2BDFE9C700A103EC /* Services */,
 				D244F94E2BA632CA00F962DB /* DosTap_iOS */,
 				D244F94D2BA632CA00F962DB /* Products */,
 			);
@@ -54,8 +64,8 @@
 			isa = PBXGroup;
 			children = (
 				D244F94F2BA632CA00F962DB /* DosTap_iOSApp.swift */,
-				D244F9512BA632CA00F962DB /* ContentView.swift */,
-				D2D21A402BA862530081E02F /* Item.swift */,
+				D2A1DAAE2BDD880000A103EC /* Views */,
+				D2A1DAAD2BDD87E800A103EC /* Models */,
 				D244F9532BA632CC00F962DB /* Assets.xcassets */,
 				D244F9552BA632CC00F962DB /* Preview Content */,
 			);
@@ -68,6 +78,40 @@
 				D244F9562BA632CC00F962DB /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D245D1482BE8F47A00CDF3DA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D245D1492BE8F49300CDF3DA /* LoginViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D2A1DAAD2BDD87E800A103EC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D2D21A402BA862530081E02F /* Item.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D2A1DAAE2BDD880000A103EC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D244F9512BA632CA00F962DB /* InterestSelectionView.swift */,
+				D245D14F2BE95A7700CDF3DA /* OnboardingView.swift */,
+				D245D1512BE9659500CDF3DA /* RegistrationView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D2A1DAAF2BDFE9C700A103EC /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D2A1DAB02BDFE9F600A103EC /* Webservice.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,8 +184,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D244F9522BA632CA00F962DB /* ContentView.swift in Sources */,
+				D244F9522BA632CA00F962DB /* InterestSelectionView.swift in Sources */,
 				D2D21A412BA862530081E02F /* Item.swift in Sources */,
+				D2A1DAB12BDFE9F600A103EC /* Webservice.swift in Sources */,
+				D245D1522BE9659500CDF3DA /* RegistrationView.swift in Sources */,
+				D245D1502BE95A7700CDF3DA /* OnboardingView.swift in Sources */,
+				D245D14A2BE8F49300CDF3DA /* LoginViewModel.swift in Sources */,
 				D244F9502BA632CA00F962DB /* DosTap_iOSApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

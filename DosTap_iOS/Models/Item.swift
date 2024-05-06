@@ -25,12 +25,4 @@ let data = [
     Item(backgroundColor: Color("Color2"), image: "Group 76", title: "Исследуйте свой город ", subtitle: "Открывайте  уникальные уголки своего города, встречайте новых людей, погружайтесь в культуру и историю, и наслаждайтесь всем тем, что ваш город может предложить.")
     
 ]
-//struct Item_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Item()
-//    }
-//}
 
-//#Preview {
-//    Item()
-//}
